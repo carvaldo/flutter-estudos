@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:picker/SecondRout.dart';
 
 void main() {
   runApp(const MyApp());
@@ -111,7 +112,10 @@ class HomePageState extends State {
                   child: Text("Veja aqui o texto mudar de tamanho e cor.")),
             style: TextStyle(
                 color: _fontColor, fontSize: _fontSize.toDouble())
-          )
+          ),
+          ElevatedButton(
+              onPressed: () => _toNavigate(context),
+              child: const Text("Navegar"))
         ],
       ),
     );
@@ -198,5 +202,9 @@ class HomePageState extends State {
         _fontColor = ThemeData.light().textTheme.bodyText1?.color ?? Colors.black;
       }
     });
+  }
+
+  _toNavigate(BuildContext context) {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const SecondRoute()));
   }
 }
