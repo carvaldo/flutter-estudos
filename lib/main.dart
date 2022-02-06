@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:picker/data_table_page.dart';
 import 'package:picker/drag_drop_page.dart';
 import 'package:picker/routes.dart';
 import 'package:picker/table_page.dart';
@@ -108,7 +109,10 @@ class HomePageState extends State {
               child: const Text("Ver Arrasta e Solta")),
           ElevatedButton(
               onPressed: () => _toNavigate(context, Routes.tableRoute),
-              child: const Text("Ver tabela"))
+              child: const Text("Ver tabela")),
+          ElevatedButton(
+              onPressed: () => _toNavigate(context, Routes.dataTableRoute),
+              child: const Text("Ver tabela de dados"))
         ],
       ),
     );
@@ -209,6 +213,9 @@ class HomePageState extends State {
         break;
       case Routes.tableRoute:
         widget = const TablePage();
+        break;
+      case Routes.dataTableRoute:
+        widget = const DataTablePage();
         break;
     }
     var materialRoute = MaterialPageRoute(builder: (context) => widget);

@@ -1,1 +1,1 @@
-enum Routes { dragDropRoute, tableRoute }
+enum Routes { dragDropRoute, tableRoute, dataTableRoute }
