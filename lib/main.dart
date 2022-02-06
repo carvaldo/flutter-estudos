@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:picker/second_route.dart';
+import 'package:picker/drag_drop_page.dart';
+import 'package:picker/routes.dart';
+import 'package:picker/table_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -102,8 +104,11 @@ class HomePageState extends State {
               style:
                   TextStyle(color: _fontColor, fontSize: _fontSize.toDouble())),
           ElevatedButton(
-              onPressed: () => _toNavigate(context),
-              child: const Text("Navegar"))
+              onPressed: () => _toNavigate(context, Routes.dragDropRoute),
+              child: const Text("Ver Arrasta e Solta")),
+          ElevatedButton(
+              onPressed: () => _toNavigate(context, Routes.tableRoute),
+              child: const Text("Ver tabela"))
         ],
       ),
     );
@@ -196,10 +201,17 @@ class HomePageState extends State {
     });
   }
 
-  _toNavigate(BuildContext context) {
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => const SecondRoute(), maintainState: false));
+  _toNavigate(BuildContext context, Routes route) {
+    Widget widget;
+    switch (route) {
+      case Routes.dragDropRoute:
+        widget = const SecondRoute();
+        break;
+      case Routes.tableRoute:
+        widget = const TablePage();
+        break;
+    }
+    var materialRoute = MaterialPageRoute(builder: (context) => widget);
+    Navigator.push(context, materialRoute);
   }
 }
