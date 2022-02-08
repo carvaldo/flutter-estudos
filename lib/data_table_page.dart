@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// TODO: Sort não está funcionando. Exemplo incompleto.
 class DataTablePage extends StatelessWidget {
   const DataTablePage({Key? key}) : super(key: key);
 
@@ -8,7 +9,7 @@ class DataTablePage extends StatelessWidget {
     return Scaffold(
       body: Column(children: [
         Container(height: 50),
-        DataTable(sortColumnIndex: 1, columns: const [
+        DataTable(sortColumnIndex: 1, sortAscending: false, columns: const [
           DataColumn(label: Text("First Name")),
           DataColumn(label: Text("Last Name"))
         ], rows: const [
